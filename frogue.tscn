@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyxqmfxjhcgoi"]
+
+[ext_resource type="Script" path="res://frogue.gd" id="1_lw61t"]
+[ext_resource type="Texture2D" uid="uid://bcjwtdxmp7n8o" path="res://icon.svg" id="2_fmbed"]
+
+[node name="Frogue" type="PanelContainer" node_paths=PackedStringArray("texture_rect")]
+offset_right = 50.0
+offset_bottom = 50.0
+script = ExtResource("1_lw61t")
+texture_rect = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_fmbed")
+expand_mode = 1

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://rhvrri1c7lap"]
+
+[ext_resource type="Script" path="res://grid.gd" id="1_0pi0t"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 100.0
+offset_top = 300.0
+offset_right = 140.0
+offset_bottom = 340.0
+
+[node name="Grid" type="GridContainer" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_0pi0t")
