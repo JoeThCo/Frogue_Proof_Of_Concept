@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cyxqmfxjhcgoi"]
 
-[ext_resource type="Script" path="res://frogue.gd" id="1_lw61t"]
+[ext_resource type="Script" path="res://slot.gd" id="1_lw61t"]
 [ext_resource type="Texture2D" uid="uid://bcjwtdxmp7n8o" path="res://icon.svg" id="2_fmbed"]
 
 [node name="Frogue" type="PanelContainer" node_paths=PackedStringArray("texture_rect")]
