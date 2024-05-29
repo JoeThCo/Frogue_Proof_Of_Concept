@@ -5,11 +5,11 @@ class_name Frog_Slot
 @export var texture_rect: TextureRect 
 
 
-var frog: Frog
+var frog: Frog_Data
 var index: int
 
 
-func frogue_init(in_frog: Frog, in_index: int):
+func frogue_init(in_frog: Frog_Data, in_index: int):
     frog = in_frog
     index = in_index
     texture_rect.modulate = in_frog.color

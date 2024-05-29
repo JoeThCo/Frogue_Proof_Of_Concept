@@ -1,5 +1,5 @@
 extends Node
-class_name Frog
+class_name Frog_Data
 
 var color: Color = Color.TRANSPARENT
 var health: int = 5
