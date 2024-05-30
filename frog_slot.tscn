@@ -14,10 +14,3 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 expand_mode = 1
 script = ExtResource("2_26jcg")
-
-[node name="Debug" type="Label" parent="Frog_Data"]
-layout_mode = 0
-offset_top = 27.0
-offset_right = 50.0
-offset_bottom = 50.0
-text = "ATK"

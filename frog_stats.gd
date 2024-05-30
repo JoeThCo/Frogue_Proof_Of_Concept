@@ -1,11 +1,10 @@
 extends TextureRect
 
 
-@export var damage: int = 5:
+var damage: int = 0:
     set(value):
         damage = value
-        $Debug.text = str(damage)
-
+        
 
 @onready var property: Dictionary = {"TEXTURE": texture,
                                      "DAMAGE": damage}:

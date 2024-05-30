@@ -5,6 +5,8 @@ class_name Frog_Slot
 @export var texture_rect: TextureRect
 
 
+var is_filled: bool = false
+
 #to get data that can be dragged and dropped onto controls that expect drop data
 func _get_drag_data(_at_position: Vector2) -> Variant:
     set_drag_preview(get_preview())
@@ -36,3 +38,4 @@ func get_preview():
     
 func set_property(frog_data: Dictionary):
     texture_rect.property = frog_data
+    is_filled = frog_data["TEXTURE"] == null

@@ -24,7 +24,7 @@ func print_grid():
     print("New Grid Print...")
     for child in get_children():
         var temp_frog_slot: Frog_Slot = child as Frog_Slot
-        print(temp_frog_slot.frog_data)
+        print(temp_frog_slot.texture_rect.property)
         
         
 func add_frog():
@@ -32,7 +32,13 @@ func add_frog():
     var damage: int = (randi() % 5) + 1
     var frog_data = {"TEXTURE": texture, "DAMAGE": damage}
     get_child(0).set_property(frog_data)
-        
+    
+    var index = 0
+    for i in get_children():
+        if i.is_filled == false:
+            index = i.get_index()
+            break
+    get_child(index).set_property(frog_data)
         
 func _process(_delta: float) -> void:
     if Input.is_action_just_pressed("Debug"):
