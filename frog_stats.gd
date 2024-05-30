@@ -1,17 +1,22 @@
 extends TextureRect
 
 
-@export var damage: Damage
-@export var health: Health
+var damage: Damage
+var health: Health
+var frog_type: Frog_Type
 
 
-@onready var property: Dictionary = {"TEXTURE": texture,
-                                     "DAMAGE": null,
-                                    "HEALTH": null}:
+@onready var property: Dictionary = {"Texture": texture,
+                                     "Damage": null,
+                                    "Health": null,
+                                    "Frog_Type": null}:
         set(value):
             property = value
 
-            texture = property["TEXTURE"]
-            damage = property["DAMAGE"]
-            health = property["HEALTH"]
+            texture = property["Texture"]
+            damage = property["Damage"]
+            health = property["Health"]
+            frog_type = property["Frog_Type"]
             
+func _to_string() -> String:
+    return "Damage:{0} | Health:{1} | FrogType:{2}".format([str(damage), str(health), str(frog_type)])

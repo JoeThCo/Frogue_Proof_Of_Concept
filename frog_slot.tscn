@@ -1,10 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyxqmfxjhcgoi"]
+[gd_scene load_steps=3 format=3 uid="uid://cyxqmfxjhcgoi"]
 
 [ext_resource type="Script" path="res://frog_slot.gd" id="1_hwi5h"]
 [ext_resource type="Script" path="res://frog_stats.gd" id="2_26jcg"]
-[ext_resource type="PackedScene" uid="uid://ff7kf4ogdbuv" path="res://Components/damage.tscn" id="3_y804j"]
-[ext_resource type="PackedScene" uid="uid://cn6isnwo2554g" path="res://Components/health.tscn" id="4_r7q8f"]
-[ext_resource type="Script" path="res://Components/health.gd" id="5_7i7gy"]
 
 [node name="Frog_Slot" type="PanelContainer" node_paths=PackedStringArray("texture_rect")]
 offset_right = 50.0
@@ -12,15 +9,8 @@ offset_bottom = 50.0
 script = ExtResource("1_hwi5h")
 texture_rect = NodePath("Frog_Data")
 
-[node name="Frog_Data" type="TextureRect" parent="." node_paths=PackedStringArray("damage", "health")]
+[node name="Frog_Data" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 expand_mode = 1
 script = ExtResource("2_26jcg")
-damage = NodePath("Damage")
-health = NodePath("Health")
-
-[node name="Damage" parent="Frog_Data" instance=ExtResource("3_y804j")]
-
-[node name="Health" parent="Frog_Data" instance=ExtResource("4_r7q8f")]
-script = ExtResource("5_7i7gy")

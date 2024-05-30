@@ -24,7 +24,7 @@ func print_grid():
     print("New Grid Print...")
     for child in get_children():
         var temp_frog_slot: Frog_Slot = child as Frog_Slot
-        print(temp_frog_slot.texture_rect.property)
+        print(temp_frog_slot.texture_rect)
         
         
 func add_frog():
@@ -36,7 +36,10 @@ func add_frog():
     var health: Health = Health.new()
     health.health_init((randi() % 3) + 1)
     
-    var frog_data = {"TEXTURE": texture, "DAMAGE": damage, "HEALTH" : health}
+    var frog_type: Frog_Type = Frog_Type.new()
+    frog_type.frog_type_init()
+    
+    var frog_data: Dictionary = {"Texture": texture, "Damage": damage, "Health" : health, "Frog_Type": frog_type}
     get_child(0).set_property(frog_data)
     
     var index = 0
