@@ -2,17 +2,7 @@ extends PanelContainer
 class_name Frog_Slot
 
 
-@export var texture_rect: TextureRect 
-
-
-var frog: Frog_Data
-var index: int
-
-
-func frogue_init(in_frog: Frog_Data, in_index: int):
-    frog = in_frog
-    index = in_index
-    texture_rect.modulate = in_frog.color
+@export var texture_rect: TextureRect
 
 
 #to get data that can be dragged and dropped onto controls that expect drop data
@@ -28,15 +18,14 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 
 # to pass you the data from a control's _get_drag_data() result
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
-    var temp: Texture = texture_rect.texture
-    texture_rect.texture = data.texture
-    data.texture = temp
+    var temp = texture_rect.property
+    texture_rect.property = data.property
+    data.property = temp
     
 
 func get_preview():
     var preview_texture: TextureRect = TextureRect.new()
     preview_texture.texture = texture_rect.texture
-    preview_texture.modulate = texture_rect.modulate
     preview_texture.expand_mode = TextureRect.EXPAND_FIT_WIDTH
     preview_texture.size = Vector2.ONE * 25
     
@@ -45,5 +34,5 @@ func get_preview():
     return preview
     
     
-func remove_texture():
-    texture_rect.texture = null
+func set_property(frog_data: Dictionary):
+    texture_rect.property = frog_data
