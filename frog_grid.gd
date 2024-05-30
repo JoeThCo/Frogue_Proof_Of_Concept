@@ -29,8 +29,14 @@ func print_grid():
         
 func add_frog():
     var texture: CompressedTexture2D = load("res://icon.svg")
-    var damage: int = (randi() % 5) + 1
-    var frog_data = {"TEXTURE": texture, "DAMAGE": damage}
+    
+    var damage: Damage = Damage.new()
+    damage.damage_init((randi() % 5) + 1)
+    
+    var health: Health = Health.new()
+    health.health_init((randi() % 3) + 1)
+    
+    var frog_data = {"TEXTURE": texture, "DAMAGE": damage, "HEALTH" : health}
     get_child(0).set_property(frog_data)
     
     var index = 0

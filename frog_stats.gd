@@ -1,15 +1,17 @@
 extends TextureRect
 
 
-var damage: int = 0:
-    set(value):
-        damage = value
-        
+@export var damage: Damage
+@export var health: Health
+
 
 @onready var property: Dictionary = {"TEXTURE": texture,
-                                     "DAMAGE": damage}:
+                                     "DAMAGE": null,
+                                    "HEALTH": null}:
         set(value):
             property = value
 
             texture = property["TEXTURE"]
             damage = property["DAMAGE"]
+            health = property["HEALTH"]
+            
