@@ -23,10 +23,20 @@ var frog_type: Frog_Type
                 modulate = frog_type.get_color()
                 
 func _ready() -> void:
-    var tween: Tween = get_tree().create_tween()
-    tween.tween_property(self,"scale", Vector2.ZERO, 0)                    
-    tween.tween_property(self,"scale", Vector2.ONE, 1)          
+    tween_back_and_forth.call_deferred(Vector2.ZERO, 2)
               
 
 func _to_string() -> String:
     return "Damage:{0} | Health:{1} | FrogType:{2}".format([str(damage), str(health), str(frog_type)])
+    
+
+func tween_back_and_forth(pos: Vector2, total_time: float) ->void:
+    var init_pos: Vector2 = global_position
+
+    var to_tween: Tween = get_tree().create_tween()
+    to_tween.tween_property(self, "global_position", pos, total_time / 2)
+    await to_tween.finished
+    
+    var from_tween: Tween = get_tree().create_tween()
+    from_tween.tween_property(self, "global_position", init_pos - global_position, total_time / 2)
+    await from_tween.finished
