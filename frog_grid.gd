@@ -14,21 +14,21 @@ func _ready() -> void:
     add_frog()
         
         
-func make_grid():
+func make_grid() -> void:
     columns = GRID_SIZE
     for i in range(GRID_SIZE * GRID_SIZE):
         var new_frog_slot: Frog_Slot = frog_slot.instantiate() as Frog_Slot
         add_child(new_frog_slot)
         
     
-func print_grid():
+func print_grid() -> void:
     print("New Grid Print...")
     for child in get_children():
         var temp_frog_slot: Frog_Slot = child as Frog_Slot
         print(temp_frog_slot.texture_rect)
         
         
-func add_frog():
+func add_frog() -> void:
     var texture: CompressedTexture2D = load("res://icon.svg")
     
     var damage: Damage = Damage.new()

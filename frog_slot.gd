@@ -25,7 +25,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
     data.property = temp
     
 
-func get_preview():
+func get_preview() -> Control:
     var preview_texture: TextureRect = TextureRect.new()
     preview_texture.texture = texture_rect.texture
     preview_texture.expand_mode = TextureRect.EXPAND_FIT_WIDTH
@@ -36,6 +36,6 @@ func get_preview():
     return preview
     
     
-func set_property(frog_data: Dictionary):
+func set_property(frog_data: Dictionary) -> void:
     texture_rect.property = frog_data
     is_filled = texture_rect.property["Texture"] != null
