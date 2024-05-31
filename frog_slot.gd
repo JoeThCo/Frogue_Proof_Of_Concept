@@ -38,4 +38,4 @@ func get_preview():
     
 func set_property(frog_data: Dictionary):
     texture_rect.property = frog_data
-    is_filled = frog_data["Texture"] == null
+    is_filled = texture_rect.property["Texture"] != null

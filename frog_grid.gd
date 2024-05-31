@@ -11,6 +11,7 @@ const GRID_SIZE: int = 3
 func _ready() -> void:
     make_grid()
     add_frog()
+    add_frog()
         
         
 func make_grid():
@@ -40,14 +41,14 @@ func add_frog():
     frog_type.frog_type_init()
     
     var frog_data: Dictionary = {"Texture": texture, "Damage": damage, "Health" : health, "Frog_Type": frog_type}
-    get_child(0).set_property(frog_data)
     
-    var index = 0
-    for i in get_children():
-        if i.is_filled == false:
-            index = i.get_index()
+    for child: Frog_Slot in get_children():
+        var current: Frog_Slot = child as Frog_Slot
+        if !current.is_filled:
+            print(current.is_filled)
+            child.set_property(frog_data)
             break
-    get_child(index).set_property(frog_data)
+        
         
 func _process(_delta: float) -> void:
     if Input.is_action_just_pressed("Debug"):
