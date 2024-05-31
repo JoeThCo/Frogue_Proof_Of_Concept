@@ -3,13 +3,15 @@
 [ext_resource type="Script" path="res://frog_slot.gd" id="1_hwi5h"]
 [ext_resource type="Script" path="res://frog_stats.gd" id="2_26jcg"]
 
-[node name="Frog_Slot" type="PanelContainer" node_paths=PackedStringArray("texture_rect")]
-offset_right = 50.0
-offset_bottom = 50.0
+[node name="Frog_Slot" type="PanelContainer" node_paths=PackedStringArray("frog_stats")]
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
 script = ExtResource("1_hwi5h")
-texture_rect = NodePath("Frog_Data")
+frog_stats = NodePath("Frog_Stats")
 
-[node name="Frog_Data" type="TextureRect" parent="."]
+[node name="Frog_Stats" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 expand_mode = 1

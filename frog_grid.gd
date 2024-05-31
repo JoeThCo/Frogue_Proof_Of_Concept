@@ -10,9 +10,7 @@ const GRID_SIZE: int = 3
 
 func _ready() -> void:
     make_grid()
-    add_frog()
-    add_frog()
-        
+    add_frogs(4)
         
 func make_grid() -> void:
     columns = GRID_SIZE
@@ -45,9 +43,15 @@ func add_frog() -> void:
     for child: Frog_Slot in get_children():
         var current: Frog_Slot = child as Frog_Slot
         if !current.is_filled:
-            print(current.is_filled)
             child.set_property(frog_data)
             break
+            
+
+func add_frogs(count: int) -> void:
+    var min_count = min(count, GRID_SIZE * GRID_SIZE)
+    print(min_count)
+    for i in range(min_count):
+        add_frog()
         
         
 func _process(_delta: float) -> void:

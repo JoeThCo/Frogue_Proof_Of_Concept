@@ -22,6 +22,11 @@ var frog_type: Frog_Type
             if frog_type:
                 modulate = frog_type.get_color()
                 
-            
+func _ready() -> void:
+    var tween: Tween = get_tree().create_tween()
+    tween.tween_property(self,"scale", Vector2.ZERO, 0)                    
+    tween.tween_property(self,"scale", Vector2.ONE, 1)          
+              
+
 func _to_string() -> String:
     return "Damage:{0} | Health:{1} | FrogType:{2}".format([str(damage), str(health), str(frog_type)])
