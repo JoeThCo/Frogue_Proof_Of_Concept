@@ -1,5 +1,5 @@
 extends TextureRect
-class_name Frog_Stats
+class_name Being_Stats
 
 
 var damage: Damage

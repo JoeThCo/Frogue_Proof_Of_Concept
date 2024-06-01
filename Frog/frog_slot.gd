@@ -2,7 +2,7 @@ extends PanelContainer
 class_name Frog_Slot
 
 
-@export var frog_stats: Frog_Stats
+@export var being_stats: Being_Stats
 
 
 var is_filled: bool = false
@@ -11,7 +11,7 @@ var is_filled: bool = false
 #to get data that can be dragged and dropped onto controls that expect drop data
 func _get_drag_data(_at_position: Vector2) -> Variant:
     set_drag_preview(get_preview())
-    return frog_stats
+    return being_stats
     
     
 #to test if data from a control's _get_drag_data() can be dropped at at_position
@@ -21,15 +21,15 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 
 # to pass you the data from a control's _get_drag_data() result
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
-    var temp = frog_stats.property
-    frog_stats.property = data.property
+    var temp = being_stats.property
+    being_stats.property = data.property
     data.property = temp
     
 
 func get_preview() -> Control:
     var preview_texture: TextureRect = TextureRect.new()
-    preview_texture.texture = frog_stats.texture
-    preview_texture.modulate = frog_stats.frog_type.get_color()
+    preview_texture.texture = being_stats.texture
+    preview_texture.modulate = being_stats.frog_type.get_color()
     preview_texture.expand_mode = TextureRect.EXPAND_FIT_WIDTH
     preview_texture.size = Vector2.ONE * 25
     
@@ -39,5 +39,5 @@ func get_preview() -> Control:
     
     
 func set_property(frog_data: Dictionary) -> void:
-    frog_stats.property = frog_data
-    is_filled = frog_stats.property["Texture"] != null
+    being_stats.property = frog_data
+    is_filled = being_stats.property["Texture"] != null

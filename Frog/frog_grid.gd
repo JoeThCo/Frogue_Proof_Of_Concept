@@ -2,7 +2,7 @@ extends GridContainer
 class_name Frog_Grid
 
 
-@onready var frog_slot: PackedScene = load("res://frog_slot.tscn")
+@onready var frog_slot: PackedScene = load("res://Frog/frog_slot.tscn")
 
 
 const GRID_SIZE: int = 3
@@ -28,7 +28,7 @@ func print_grid() -> void:
         
         
 func add_frog() -> void:
-    var texture: CompressedTexture2D = load("res://icon.svg")
+    var texture: CompressedTexture2D = load("res://Art/icon.svg")
     
     var damage: Damage = Damage.new()
     damage.damage_init((randi() % 5) + 1)
