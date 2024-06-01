@@ -26,6 +26,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_tlrw0")
 can_player_modifiy = true
+grid_size = null
 
 [node name="Baddie" type="Control" parent="UI"]
 anchors_preset = 0
@@ -39,3 +40,5 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_tlrw0")
+can_player_modifiy = null
+grid_size = null

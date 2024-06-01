@@ -7,8 +7,8 @@ signal health_under_zero
 @export var hp: int
 
 
-func health_init(in_hp: int):
-    hp = in_hp
+func health_init():
+    hp = (randi() % 3) + 1
 
 
 func take_damage(damage: Damage):

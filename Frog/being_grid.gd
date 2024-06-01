@@ -32,10 +32,10 @@ func add_being() -> void:
     var texture: CompressedTexture2D = load("res://Art/icon.svg")
     
     var damage: Damage = Damage.new()
-    damage.damage_init((randi() % 5) + 1)
+    damage.damage_init()
     
     var health: Health = Health.new()
-    health.health_init((randi() % 3) + 1)
+    health.health_init()
     
     var being_type: Being_Type = Being_Type.new()
     being_type.being_type_init()

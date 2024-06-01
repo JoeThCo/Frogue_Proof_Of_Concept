@@ -5,8 +5,8 @@ class_name Damage
 @export var damage: int
 
 
-func damage_init(in_amount: int) -> void:
-    damage = in_amount
+func damage_init() -> void:
+    damage = (randi() % 5) + 1
 
 
 func _to_string() -> String:
