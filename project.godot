@@ -14,7 +14,7 @@ config/name="Frogue"
 config/version="0.0.1.a"
 run/main_scene="res://Menus/game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Art/icon.svg"
 
 [input]
 
