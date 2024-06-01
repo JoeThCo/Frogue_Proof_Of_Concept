@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Frog/being_slot.gd" id="1_ft7s0"]
 [ext_resource type="Script" path="res://Frog/being_stats.gd" id="2_r5ws6"]
 
-[node name="Frog_Slot" type="PanelContainer" node_paths=PackedStringArray("being_stats")]
+[node name="Being_Slot" type="PanelContainer" node_paths=PackedStringArray("being_stats")]
 offset_left = -25.0
 offset_top = -25.0
 offset_right = 25.0
