@@ -6,10 +6,17 @@ class_name Being_Slot
 
 
 var is_filled: bool = false
+var can_player_modify: bool = false
+
+
+func being_slot_init(in_can_player_modify: bool):
+    can_player_modify = in_can_player_modify
 
 
 #to get data that can be dragged and dropped onto controls that expect drop data
 func _get_drag_data(_at_position: Vector2) -> Variant:
+    if !can_player_modify: return
+    
     set_drag_preview(get_preview())
     return being_stats
     

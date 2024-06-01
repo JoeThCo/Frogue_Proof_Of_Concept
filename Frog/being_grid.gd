@@ -17,6 +17,7 @@ func make_grid() -> void:
     columns = grid_size
     for i in range(grid_size * grid_size):
         var new_being_slot: Being_Slot = frog_slot.instantiate() as Being_Slot
+        new_being_slot.being_slot_init(can_player_modifiy)
         add_child(new_being_slot)
         
     
