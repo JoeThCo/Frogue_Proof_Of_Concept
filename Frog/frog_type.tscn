@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://wdywednnvqlj"]
 
-[ext_resource type="Script" path="res://Components/frog_type.gd" id="1_1mkih"]
+[ext_resource type="Script" path="res://Frog/frog_type.gd" id="1_1mkih"]
 
 [node name="Type" type="Node2D"]
 script = ExtResource("1_1mkih")

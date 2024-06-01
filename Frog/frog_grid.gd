@@ -11,6 +11,7 @@ const GRID_SIZE: int = 3
 func _ready() -> void:
     make_grid()
     add_frogs(4)
+    
         
 func make_grid() -> void:
     columns = GRID_SIZE

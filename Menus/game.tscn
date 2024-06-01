@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://rhvrri1c7lap"]
+
+[ext_resource type="Script" path="res://Frog/frog_grid.gd" id="1_tlrw0"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player" type="Control" parent="UI"]
+anchors_preset = 0
+offset_left = 110.0
+offset_top = 220.0
+offset_right = 150.0
+offset_bottom = 260.0
+
+[node name="Grid" type="GridContainer" parent="UI/Player"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_tlrw0")
+
+[node name="Baddie" type="Control" parent="UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
