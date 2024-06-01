@@ -4,23 +4,23 @@ class_name Being_Stats
 
 var damage: Damage
 var health: Health
-var frog_type: Frog_Type
+var being_type: Being_Type
 
 
 @onready var property: Dictionary = {"Texture": null,
                                      "Damage": null,
                                     "Health": null,
-                                    "Frog_Type": null}:
+                                    "Being_Type": null}:
         set(value):
             property = value
 
             texture = property["Texture"]
             damage = property["Damage"]
             health = property["Health"]
-            frog_type = property["Frog_Type"]
+            being_type = property["Being_Type"]
             
-            if frog_type:
-                modulate = frog_type.get_color()
+            if being_type:
+                modulate = being_type.get_color()
                 
                 
 func _ready() -> void:
@@ -29,7 +29,7 @@ func _ready() -> void:
               
 
 func _to_string() -> String:
-    return "Damage:{0} | Health:{1} | FrogType:{2}".format([str(damage), str(health), str(frog_type)])
+    return "Damage:{0} | Health:{1} | Being_Type:{2}".format([str(damage), str(health), str(being_type)])
     
 
 func tween_back_and_forth(pos: Vector2, total_time: float) ->void:
