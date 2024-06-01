@@ -1,18 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://cyxqmfxjhcgoi"]
 
-[ext_resource type="Script" path="res://Frog/frog_slot.gd" id="1_hwi5h"]
-[ext_resource type="Script" path="res://Frog/being_stats.gd" id="2_26jcg"]
+[ext_resource type="Script" path="res://Frog/being_slot.gd" id="1_ft7s0"]
+[ext_resource type="Script" path="res://Frog/being_stats.gd" id="2_r5ws6"]
 
 [node name="Frog_Slot" type="PanelContainer" node_paths=PackedStringArray("being_stats")]
 offset_left = -25.0
 offset_top = -25.0
 offset_right = 25.0
 offset_bottom = 25.0
-script = ExtResource("1_hwi5h")
+script = ExtResource("1_ft7s0")
 being_stats = NodePath("Being_Slot")
 
 [node name="Being_Slot" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 expand_mode = 1
-script = ExtResource("2_26jcg")
+script = ExtResource("2_r5ws6")

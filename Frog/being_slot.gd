@@ -1,5 +1,5 @@
 extends PanelContainer
-class_name Frog_Slot
+class_name Being_Slot
 
 
 @export var being_stats: Being_Stats
