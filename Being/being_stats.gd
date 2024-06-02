@@ -4,12 +4,14 @@ class_name Being_Stats
 
 var damage: Damage
 var health: Health
+var speed: Speed
 var being_type: Being_Type
 
 
 @onready var property: Dictionary = {"Texture": null,
                                      "Damage": null,
                                     "Health": null,
+                                    "Speed" : null,
                                     "Being_Type": null}:
         set(value):
             property = value
@@ -17,6 +19,7 @@ var being_type: Being_Type
             texture = property["Texture"]
             damage = property["Damage"]
             health = property["Health"]
+            speed = property["Speed"]
             being_type = property["Being_Type"]
             
             if being_type:
@@ -25,16 +28,19 @@ var being_type: Being_Type
                 
                 
 func _ready() -> void:
-   # tween_back_and_forth.call_deferred(Vector2.ZERO, 2)
     pass
-              
+        
+
+func get_speed() -> int:
+    return speed.amount        
+
             
 func is_being_slot() -> bool:
     return damage == null and texture == null and health == null and being_type == null
     
 
 func _to_string() -> String:
-    return "Damage:{0} | Health:{1} | Being_Type:{2}".format([str(damage), str(health), str(being_type)])
+    return "Damage: {0} | Health: {1} | Speed: {2} | Being_Type: {3}".format([str(damage), str(health), str(speed), str(being_type)])
     
 
 func tween_back_and_forth(pos: Vector2, total_time: float) ->void:

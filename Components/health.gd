@@ -4,7 +4,7 @@ class_name Health
 signal health_under_zero
 
 
-@export var hp: int
+var hp: int
 
 
 func health_init():

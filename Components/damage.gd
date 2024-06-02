@@ -2,7 +2,7 @@ extends Node2D
 class_name Damage
 
 
-@export var damage: int
+var damage: int
 
 
 func damage_init() -> void:
