@@ -2,7 +2,8 @@ extends GridContainer
 class_name Being_Grid
 
 
-@onready var frog_slot: PackedScene = load("res://Frog/being_slot.tscn")
+@onready var being_slot: PackedScene = load("res://Frog/being_slot.tscn")
+
 
 @export var can_player_modifiy: bool = false
 @export var grid_size: int = 3
@@ -16,16 +17,17 @@ func _ready() -> void:
 func make_grid() -> void:
     columns = grid_size
     for i in range(grid_size * grid_size):
-        var new_being_slot: Being_Slot = frog_slot.instantiate() as Being_Slot
+        var new_being_slot: Being_Slot = being_slot.instantiate() as Being_Slot
         new_being_slot.being_slot_init(can_player_modifiy)
         add_child(new_being_slot)
         
-    
+        
 func print_grid() -> void:
     print("New Grid Print...")
-    for child in get_children():
+    var test_children = get_children().filter(func(x: Being_Slot): return !x.being_stats.is_being_slot()) as Array[Being_Slot]
+    for child in test_children:
         var new_being_slot: Being_Slot = child as Being_Slot
-        print(new_being_slot.texture_rect)
+        print(new_being_slot.being_stats)
         
         
 func add_being() -> void:

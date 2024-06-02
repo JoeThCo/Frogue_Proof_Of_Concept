@@ -23,10 +23,15 @@ var being_type: Being_Type
                 modulate = being_type.get_color()
                 
                 
+                
 func _ready() -> void:
    # tween_back_and_forth.call_deferred(Vector2.ZERO, 2)
     pass
               
+            
+func is_being_slot() -> bool:
+    return damage == null and texture == null and health == null and being_type == null
+    
 
 func _to_string() -> String:
     return "Damage:{0} | Health:{1} | Being_Type:{2}".format([str(damage), str(health), str(being_type)])

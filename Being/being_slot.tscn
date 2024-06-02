@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cyxqmfxjhcgoi"]
 
-[ext_resource type="Script" path="res://Frog/being_slot.gd" id="1_ft7s0"]
-[ext_resource type="Script" path="res://Frog/being_stats.gd" id="2_r5ws6"]
+[ext_resource type="Script" path="res://Being/being_slot.gd" id="1_ft7s0"]
+[ext_resource type="Script" path="res://Being/being_stats.gd" id="2_r5ws6"]
 
 [node name="Being_Slot" type="PanelContainer" node_paths=PackedStringArray("being_stats")]
 offset_left = -25.0
@@ -9,9 +9,9 @@ offset_top = -25.0
 offset_right = 25.0
 offset_bottom = 25.0
 script = ExtResource("1_ft7s0")
-being_stats = NodePath("Being_Slot")
+being_stats = NodePath("Being_Stats")
 
-[node name="Being_Slot" type="TextureRect" parent="."]
+[node name="Being_Stats" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 expand_mode = 1
