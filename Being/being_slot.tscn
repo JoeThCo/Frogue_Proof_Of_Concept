@@ -11,8 +11,9 @@ offset_bottom = 25.0
 script = ExtResource("1_ft7s0")
 being_stats = NodePath("Being_Stats")
 
-[node name="Being_Stats" type="TextureRect" parent="."]
+[node name="Being_Stats" type="TextureRect" parent="." node_paths=PackedStringArray("being_slot")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 expand_mode = 1
 script = ExtResource("2_r5ws6")
+being_slot = NodePath("..")

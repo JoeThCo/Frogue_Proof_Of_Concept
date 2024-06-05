@@ -43,10 +43,12 @@ func is_dead() -> bool:
         
 func make_grid() -> void:
     columns = grid_size
-    for i in range(grid_size * grid_size):
-        var new_being_slot: Being_Slot = being_slot.instantiate() as Being_Slot
-        new_being_slot.being_slot_init(can_player_modifiy)
-        add_child(new_being_slot)
+    for x in range(grid_size):
+        for y in range(grid_size):
+            var coords: Vector2i = Vector2i(x, y)
+            var new_being_slot: Being_Slot = being_slot.instantiate() as Being_Slot
+            new_being_slot.being_slot_init(coords, can_player_modifiy)
+            add_child(new_being_slot)
     
         
 func print_grid() -> void:
@@ -71,7 +73,7 @@ func add_being() -> void:
     var being_type: Being_Type = Being_Type.new()
     being_type.being_type_init()
     
-    var being_stats: Dictionary = {"Texture": texture, "Damage": damage, "Health" : health, "Speed": speed, "Being_Type": being_type}
+    var being_stats: Dictionary = {"Texture":texture, "Damage":damage, "Health":health, "Speed":speed, "Being_Type":being_type}
     
     for child: Being_Slot in get_children():
         var current: Being_Slot = child as Being_Slot

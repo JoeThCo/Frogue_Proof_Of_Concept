@@ -24,13 +24,13 @@ func _on_fight_button_up() -> void:
 
 func battle(first_grid: Being_Grid, second_grid: Being_Grid) -> void:
      for being_slot: Being_Slot in first_grid.alive_beings:
-        await deal_damage(being_slot, second_grid.get_first())
+        await do_being_actions(being_slot, second_grid.get_first())
         if is_battle_over():
             get_battle_winner()
             break
     
 
-func deal_damage(a: Being_Slot, b: Being_Slot):
+func do_being_actions(a: Being_Slot, b: Being_Slot):
     await a.being_stats.damage_tween(b, 1)
     
     

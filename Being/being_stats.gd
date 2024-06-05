@@ -2,6 +2,9 @@ extends TextureRect
 class_name Being_Stats
 
 
+@export var being_slot: Being_Slot
+
+
 var damage: Damage
 var health: Health
 var speed: Speed
@@ -25,13 +28,17 @@ var being_type: Being_Type
             if being_type:
                 modulate = being_type.get_color()
             
-            if health:
+            if health and !health.health_under_zero.is_connected(on_health_under_zero):
                 health.health_under_zero.connect(on_health_under_zero)               
             
                 
 func on_health_under_zero():
     print("Dead!")
     texture = null
+                
+                
+func get_grid_coords() -> Vector2i:
+    return being_slot.grid_coords
                 
                 
 func get_speed() -> int:
@@ -47,7 +54,7 @@ func is_being_slot() -> bool:
     
 
 func _to_string() -> String:
-    return "Damage: {0} | Health: {1} | Speed: {2} | Being_Type: {3}".format([str(damage), str(health), str(speed), str(being_type)])
+    return "Damage: {0} | Health: {1} | Speed: {2} | Being_Type: {3} | {4}".format([str(damage), str(health), str(speed), str(being_type),str(get_grid_coords())])
     
     
 func damage_tween(other_being_slot: Being_Slot, total_time: float) -> void:

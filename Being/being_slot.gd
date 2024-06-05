@@ -3,13 +3,15 @@ class_name Being_Slot
 
 
 @export var being_stats: Being_Stats
+var grid_coords: Vector2i
 
 
 var is_filled: bool = false
 var can_player_modify: bool = false
 
 
-func being_slot_init(in_can_player_modify: bool):
+func being_slot_init(in_coords: Vector2i, in_can_player_modify: bool):
+    grid_coords = in_coords
     can_player_modify = in_can_player_modify
 
 
@@ -32,10 +34,11 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
     being_stats.property = data.property
     data.property = temp
     BattleEventBus.board_update.emit()
+    #print(being_stats)
     
 
 func get_preview() -> Control:
-    print(being_stats)
+    #print(being_stats)
     var preview_texture: TextureRect = TextureRect.new()
     preview_texture.texture = being_stats.texture
     preview_texture.modulate = being_stats.being_type.get_color() #throws error on dragging empty slot
