@@ -16,6 +16,10 @@ run/main_scene="res://Menus/game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://Art/icon.svg"
 
+[autoload]
+
+BattleEventBus="*res://BattleEventBus.gd"
+
 [input]
 
 Debug={

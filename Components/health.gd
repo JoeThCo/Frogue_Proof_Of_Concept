@@ -1,19 +1,28 @@
 extends Node2D
 class_name Health
 
+
 signal health_under_zero
 
 
 var hp: int
 
 
-func health_init():
+func health_init() -> void:
     hp = (randi() % 3) + 1
+    health_under_zero.connect(on_health_under_zero)
 
 
-func take_damage(damage: Damage):
-    hp -= damage.amount
+func on_health_under_zero() -> void:
+    BattleEventBus.on_board_update.emit()
+
+
+func is_alive() -> bool:
+    return hp > 0
     
+
+func take_damage(damage: Damage) -> void:
+    hp -= damage.amount
     if hp <= 0:
         health_under_zero.emit()
 

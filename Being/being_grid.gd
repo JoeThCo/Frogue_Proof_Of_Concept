@@ -9,10 +9,37 @@ class_name Being_Grid
 @export var grid_size: int = 3
 
 
+var alive_beings: Array[Being_Slot]
+
+
 func _ready() -> void:
+    BattleEventBus.on_board_update.connect(on_board_update)
     make_grid()
     add_beings(4)
     
+        
+func on_board_update() -> void:
+    alive_beings = []
+    for child in get_alive_being_slots():
+        var temp_being_slot: Being_Slot = child as Being_Slot
+        alive_beings.append(temp_being_slot)
+        
+
+func being_slot_by_index(index: int) -> Being_Slot:
+    return alive_beings[index]
+    
+    
+func get_first() -> Being_Slot:
+    return alive_beings[0]
+        
+        
+func get_alive_being_slots() -> Array[Node]:
+    return get_children().filter(func(x: Being_Slot): return !x.being_stats.is_being_slot() and x.being_stats.health.is_alive())
+        
+
+func is_dead() -> bool:
+    return len(alive_beings) <= 0
+
         
 func make_grid() -> void:
     columns = grid_size
@@ -20,15 +47,11 @@ func make_grid() -> void:
         var new_being_slot: Being_Slot = being_slot.instantiate() as Being_Slot
         new_being_slot.being_slot_init(can_player_modifiy)
         add_child(new_being_slot)
-        
-        
-func get_valid_being_slots():
-    return get_children().filter(func(x: Being_Slot): return !x.being_stats.is_being_slot()) as Array[Being_Slot]
     
         
 func print_grid() -> void:
     print("New Grid Print...")
-    for child in get_valid_being_slots():
+    for child in alive_beings:
         var new_being_slot: Being_Slot = child as Being_Slot
         print(new_being_slot.being_stats)
         
@@ -54,6 +77,7 @@ func add_being() -> void:
         var current: Being_Slot = child as Being_Slot
         if !current.is_filled:
             child.set_property(being_stats)
+            BattleEventBus.on_board_update.emit()
             break
             
 
@@ -65,7 +89,7 @@ func add_beings(count: int) -> void:
         
 func get_grid_total_speed() -> int:
     var total = 0
-    for child: Being_Slot in get_valid_being_slots():
+    for child: Being_Slot in get_alive_being_slots():
         total += child.being_stats.get_speed()
     return total 
         
