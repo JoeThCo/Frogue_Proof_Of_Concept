@@ -49,7 +49,7 @@ func battle(first_grid: Being_Grid, second_grid: Being_Grid) -> void:
     
 
 func do_being_actions(a: Being_Slot, b: Being_Slot):
-    await a.being_stats.damage_tween(b, 1)
+    await a.being_stats.battle_tween(b, 1)
     
     
 func is_battle_over() -> bool:

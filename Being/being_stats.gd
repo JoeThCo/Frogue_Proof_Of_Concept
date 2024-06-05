@@ -9,13 +9,15 @@ var damage: Damage
 var health: Health
 var speed: Speed
 var type: Being_Type
+var abilities: Being_Abilities
 
 
 @onready var property: Dictionary = {"Texture": null,
                                      "Damage": null,
                                     "Health": null,
                                     "Speed" : null,
-                                    "Being_Type": null}:
+                                    "Being_Type": null,
+                                    "Abilities": null}:
         set(value):
             property = value
 
@@ -24,6 +26,7 @@ var type: Being_Type
             health = property["Health"]
             speed = property["Speed"]
             type = property["Being_Type"]
+            abilities = property["Abilities"]
             
             if type:
                 modulate = type.get_color()
@@ -57,7 +60,7 @@ func _to_string() -> String:
     return "Damage: {0} | Health: {1} | Speed: {2} | Being_Type: {3} | {4}".format([str(damage), str(health), str(speed), str(type),str(get_grid_coords())])
     
     
-func damage_tween(other_being_slot: Being_Slot, total_time: float) -> void:
+func battle_tween(other_being_slot: Being_Slot, total_time: float) -> void:
     var from_position: Vector2 = global_position
 
     var to_tween: Tween = get_tree().create_tween()

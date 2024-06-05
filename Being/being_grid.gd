@@ -73,7 +73,10 @@ func add_being() -> void:
     var being_type: Being_Type = Being_Type.new()
     being_type.being_type_init()
     
-    var being_stats: Dictionary = {"Texture":texture, "Damage":damage, "Health":health, "Speed":speed, "Being_Type":being_type}
+    var being_abilities: Being_Abilities = Being_Abilities.new()
+    being_abilities.being_abilities_init()
+    
+    var being_stats: Dictionary = {"Texture":texture, "Damage":damage, "Health":health, "Speed":speed, "Being_Type":being_type, "Abilities":being_abilities}
     
     for child: Being_Slot in get_children():
         var current: Being_Slot = child as Being_Slot
