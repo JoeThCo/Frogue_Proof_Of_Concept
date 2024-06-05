@@ -13,7 +13,7 @@ var alive_beings: Array[Being_Slot]
 
 
 func _ready() -> void:
-    BattleEventBus.on_board_update.connect(on_board_update)
+    BattleEventBus.board_update.connect(on_board_update)
     make_grid()
     add_beings(4)
     
@@ -77,7 +77,7 @@ func add_being() -> void:
         var current: Being_Slot = child as Being_Slot
         if !current.is_filled:
             child.set_property(being_stats)
-            BattleEventBus.on_board_update.emit()
+            BattleEventBus.board_update.emit()
             break
             
 

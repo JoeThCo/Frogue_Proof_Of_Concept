@@ -31,7 +31,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
     var temp = being_stats.property
     being_stats.property = data.property
     data.property = temp
-    BattleEventBus.on_board_update.emit()
+    BattleEventBus.board_update.emit()
     
 
 func get_preview() -> Control:

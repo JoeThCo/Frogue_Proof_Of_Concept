@@ -1,4 +1,7 @@
 extends Node
 
 
-signal on_board_update()
+signal board_update()
+
+signal baddie_win()
+signal player_win()

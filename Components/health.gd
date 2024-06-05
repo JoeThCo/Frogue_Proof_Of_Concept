@@ -9,12 +9,12 @@ var hp: int
 
 
 func health_init() -> void:
-    hp = (randi() % 3) + 1
+    hp = (randi() % 20) + 1
     health_under_zero.connect(on_health_under_zero)
 
 
 func on_health_under_zero() -> void:
-    BattleEventBus.on_board_update.emit()
+    BattleEventBus.board_update.emit()
 
 
 func is_alive() -> bool:
