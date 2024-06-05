@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="SameTypeTrigger" load_steps=2 format=3 uid="uid://x5v5b0r0thjl"]
+
+[ext_resource type="Script" path="res://Resources/Battle/Triggers/same_type_trigger.gd" id="1_5d8ea"]
+
+[resource]
+script = ExtResource("1_5d8ea")

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="DamageIncrease" load_steps=2 format=3 uid="uid://dmcg0bwtb8lbe"]
+
+[ext_resource type="Script" path="res://Resources/Battle/BattleEvent/damage_increase.gd" id="1_y0pm4"]
+
+[resource]
+script = ExtResource("1_y0pm4")

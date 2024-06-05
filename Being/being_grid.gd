@@ -52,10 +52,11 @@ func make_grid() -> void:
     
         
 func print_grid() -> void:
-    print("New Grid Print...")
+    print(name + " Grid Print...")
     for child in alive_beings:
         var new_being_slot: Being_Slot = child as Being_Slot
         print(new_being_slot.being_stats)
+    print()
         
         
 func add_being() -> void:

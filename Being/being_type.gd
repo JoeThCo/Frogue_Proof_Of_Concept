@@ -8,7 +8,7 @@ var being_type: Being_Types
 
 
 func being_type_init() -> void:
-    being_type = Being_Types.values()[ randi() % Being_Types.size()]
+    being_type = Being_Types.values()[randi() % Being_Types.size()]
 
 
 func _to_string() -> String:

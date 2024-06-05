@@ -31,24 +31,27 @@ func _on_fight_button_up() -> void:
         faster_grid = baddie_grid
         slower_grid = player_grid
     
+    print(faster_grid.name + " start!")
     BattleEventBus.battle_start.emit()
     await battle(faster_grid, slower_grid)
     
     BattleEventBus.battle_half.emit()
     
-    await battle(slower_grid, faster_grid)    
+    if is_battle_over(): return
+    print(slower_grid.name + " start!")
+    await battle(slower_grid, faster_grid)
     BattleEventBus.battle_end.emit()
         
 
 func battle(first_grid: Being_Grid, second_grid: Being_Grid) -> void:
      for being_slot: Being_Slot in first_grid.alive_beings:
-        await do_being_actions(being_slot, second_grid.get_first())
+        await being_battle(being_slot, second_grid.get_first())
         if is_battle_over():
             get_battle_winner()
             break
     
 
-func do_being_actions(a: Being_Slot, b: Being_Slot):
+func being_battle(a: Being_Slot, b: Being_Slot):
     await a.being_stats.battle_tween(b, 1)
     
     

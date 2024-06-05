@@ -28,4 +28,4 @@ func take_damage(damage: Damage) -> void:
 
 
 func _to_string() -> String:
-    return str(hp)
+    return "HP left:" + str(hp)
