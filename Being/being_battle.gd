@@ -6,6 +6,19 @@ class_name Being_Battle
 @export var baddie_grid: Being_Grid
 
 
+func _ready() -> void:
+    BattleEventBus.battle_start.connect(on_battle_start)
+    BattleEventBus.battle_end.connect(on_battle_end)
+    
+    
+func on_battle_start():
+    $HUD/Fight.visible = false
+
+
+func on_battle_end():
+    $HUD/Fight.visible = true
+
+
 func _on_fight_button_up() -> void:
     print(str(player_grid.get_grid_total_speed()) + " vs " + str(baddie_grid.get_grid_total_speed()))
     var faster_grid: Being_Grid = null
@@ -17,9 +30,14 @@ func _on_fight_button_up() -> void:
     else:
         faster_grid = baddie_grid
         slower_grid = player_grid
-        
+    
+    BattleEventBus.battle_start.emit()
     await battle(faster_grid, slower_grid)
+    
+    BattleEventBus.battle_half.emit()
+    
     await battle(slower_grid, faster_grid)    
+    BattleEventBus.battle_end.emit()
         
 
 func battle(first_grid: Being_Grid, second_grid: Being_Grid) -> void:
