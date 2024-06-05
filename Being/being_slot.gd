@@ -19,7 +19,10 @@ func being_slot_init(in_coords: Vector2i, in_can_player_modify: bool):
 func _get_drag_data(_at_position: Vector2) -> Variant:
     if !can_player_modify: return
     
-    set_drag_preview(get_preview())
+    var preview: Control = get_preview()
+    if preview != null:
+        set_drag_preview(get_preview())
+        
     return being_stats
     
     
@@ -39,9 +42,11 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 
 func get_preview() -> Control:
     #print(being_stats)
+    if !being_stats.is_being_slot(): return null
+    
     var preview_texture: TextureRect = TextureRect.new()
     preview_texture.texture = being_stats.texture
-    preview_texture.modulate = being_stats.being_type.get_color() #throws error on dragging empty slot
+    preview_texture.modulate = being_stats.type.get_color() #throws error on dragging empty slot
     preview_texture.expand_mode = TextureRect.EXPAND_FIT_WIDTH
     preview_texture.size = Vector2.ONE * 25
     

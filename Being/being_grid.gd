@@ -34,7 +34,7 @@ func get_first() -> Being_Slot:
         
         
 func get_alive_being_slots() -> Array[Node]:
-    return get_children().filter(func(x: Being_Slot): return !x.being_stats.is_being_slot() and x.being_stats.health.is_alive())
+    return get_children().filter(func(x: Being_Slot): return x.being_stats.is_being_slot() and x.being_stats.health.is_alive())
         
 
 func is_dead() -> bool:
