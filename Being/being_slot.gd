@@ -46,7 +46,7 @@ func get_preview() -> Control:
     
     var preview_texture: TextureRect = TextureRect.new()
     preview_texture.texture = being_stats.texture
-    preview_texture.modulate = being_stats.type.get_color() #throws error on dragging empty slot
+    preview_texture.modulate = being_stats.type.get_color()
     preview_texture.expand_mode = TextureRect.EXPAND_FIT_WIDTH
     preview_texture.size = Vector2.ONE * 25
     
