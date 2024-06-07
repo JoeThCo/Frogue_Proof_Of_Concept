@@ -10,7 +10,7 @@ func damage_init() -> void:
 
 
 func multiply(mult: float) -> void:
-    amount *= mult
+    amount = round(float(amount) * mult)
 
 
 func _to_string() -> String:
