@@ -1,9 +1,11 @@
 extends Control
-class_name Being_Battle
+class_name BeingBattle
 
 
-@export var player_grid: Being_Grid
-@export var baddie_grid: Being_Grid
+@export var battle_speed: float = .5
+
+@export var player_grid: BeingGrid
+@export var baddie_grid: BeingGrid
 
 
 func _ready() -> void:
@@ -21,8 +23,8 @@ func on_battle_end():
 
 func _on_fight_button_up() -> void:
     print(str(player_grid.get_grid_total_speed()) + " vs " + str(baddie_grid.get_grid_total_speed()))
-    var faster_grid: Being_Grid = null
-    var slower_grid: Being_Grid = null
+    var faster_grid: BeingGrid = null
+    var slower_grid: BeingGrid = null
     
     if player_grid.get_grid_total_speed() >= baddie_grid.get_grid_total_speed():
         faster_grid = player_grid
@@ -43,16 +45,16 @@ func _on_fight_button_up() -> void:
     BattleEventBus.battle_end.emit()
         
 
-func battle(first_grid: Being_Grid, second_grid: Being_Grid) -> void:
-     for being_slot: Being_Slot in first_grid.alive_beings:
+func battle(first_grid: BeingGrid, second_grid: BeingGrid) -> void:
+     for being_slot: BeingSlot in first_grid.alive_beings:
         await being_battle(being_slot, second_grid.get_first())
         if is_battle_over():
             get_battle_winner()
             break
     
 
-func being_battle(a: Being_Slot, b: Being_Slot):
-    await a.being_stats.battle_tween(b, 1)
+func being_battle(a: BeingSlot, b: BeingSlot):
+    await a.being_stats.battle_tween(b, battle_speed)
     
     
 func is_battle_over() -> bool:

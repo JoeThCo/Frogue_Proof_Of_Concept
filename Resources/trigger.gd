@@ -1,5 +1,5 @@
 class_name Trigger
 
 
-func is_triggered(_current_slot: Being_Slot, _other_slot: Being_Slot) -> bool:
+func is_triggered(_current_slot: BeingSlot, _other_slot: BeingSlot) -> bool:
     return true

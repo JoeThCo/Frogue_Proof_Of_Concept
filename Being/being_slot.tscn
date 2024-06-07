@@ -3,15 +3,15 @@
 [ext_resource type="Script" path="res://Being/being_slot.gd" id="1_ft7s0"]
 [ext_resource type="Script" path="res://Being/being_stats.gd" id="2_r5ws6"]
 
-[node name="Being_Slot" type="PanelContainer" node_paths=PackedStringArray("being_stats")]
+[node name="BeingSlot" type="PanelContainer" node_paths=PackedStringArray("being_stats")]
 offset_left = -25.0
 offset_top = -25.0
 offset_right = 25.0
 offset_bottom = 25.0
 script = ExtResource("1_ft7s0")
-being_stats = NodePath("Being_Stats")
+being_stats = NodePath("BeingStats")
 
-[node name="Being_Stats" type="TextureRect" parent="." node_paths=PackedStringArray("being_slot")]
+[node name="BeingStats" type="TextureRect" parent="." node_paths=PackedStringArray("being_slot")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 expand_mode = 1

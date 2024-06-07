@@ -8,7 +8,7 @@ class_name Being_Abilities
 func being_abilities_init():
     var testing: Ability = Ability.new()
     testing.battle_event = load_battle_event("damage_increase")
-    testing.trigger = load_trigger("same_type_trigger")
+    testing.trigger = load_trigger("same_type")
     all_abilities.append(testing)
 
 
@@ -20,6 +20,6 @@ func load_trigger(trigger: String) -> Trigger:
     return load("res://Resources/Triggers/" + trigger + ".gd").new() as Trigger
 
 
-func apply_abilities(current_slot: Being_Slot, other_slot: Being_Slot):
+func apply_abilities(current_slot: BeingSlot, other_slot: BeingSlot):
     for current_ability: Ability in all_abilities:
         current_ability.apply_ability(current_slot, other_slot)

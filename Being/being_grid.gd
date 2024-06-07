@@ -1,5 +1,5 @@
 extends GridContainer
-class_name Being_Grid
+class_name BeingGrid
 
 
 @onready var being_slot: PackedScene = load("res://Being/being_slot.tscn")
@@ -9,7 +9,7 @@ class_name Being_Grid
 @export var grid_size: int = 3
 
 
-var alive_beings: Array[Being_Slot]
+var alive_beings: Array[BeingSlot]
 
 
 func _ready() -> void:
@@ -21,20 +21,20 @@ func _ready() -> void:
 func on_board_update() -> void:
     alive_beings = []
     for child in get_alive_being_slots():
-        var temp_being_slot: Being_Slot = child as Being_Slot
+        var temp_being_slot: BeingSlot = child as BeingSlot
         alive_beings.append(temp_being_slot)
         
 
-func being_slot_by_index(index: int) -> Being_Slot:
+func being_slot_by_index(index: int) -> BeingSlot:
     return alive_beings[index]
     
     
-func get_first() -> Being_Slot:
+func get_first() -> BeingSlot:
     return alive_beings[0]
         
         
 func get_alive_being_slots() -> Array[Node]:
-    return get_children().filter(func(x: Being_Slot): return x.being_stats.is_being_slot() and x.being_stats.health.is_alive())
+    return get_children().filter(func(x: BeingSlot): return x.being_stats.is_being_slot() and x.being_stats.health.is_alive())
         
 
 func is_dead() -> bool:
@@ -46,7 +46,7 @@ func make_grid() -> void:
     for x in range(grid_size):
         for y in range(grid_size):
             var coords: Vector2i = Vector2i(x, y)
-            var new_being_slot: Being_Slot = being_slot.instantiate() as Being_Slot
+            var new_being_slot: BeingSlot = being_slot.instantiate() as BeingSlot
             new_being_slot.being_slot_init(coords, can_player_modifiy)
             add_child(new_being_slot)
     
@@ -54,7 +54,7 @@ func make_grid() -> void:
 func print_grid() -> void:
     print(name + " Grid Print...")
     for child in alive_beings:
-        var new_being_slot: Being_Slot = child as Being_Slot
+        var new_being_slot: BeingSlot = child as BeingSlot
         print(new_being_slot.being_stats)
     print()
         
@@ -79,8 +79,8 @@ func add_being() -> void:
     
     var being_stats: Dictionary = {"Texture":texture, "Damage":damage, "Health":health, "Speed":speed, "Being_Type":being_type, "Abilities":being_abilities}
     
-    for child: Being_Slot in get_children():
-        var current: Being_Slot = child as Being_Slot
+    for child: BeingSlot in get_children():
+        var current: BeingSlot = child as BeingSlot
         if !current.is_filled:
             child.set_property(being_stats)
             BattleEventBus.board_update.emit()
@@ -95,7 +95,7 @@ func add_beings(count: int) -> void:
         
 func get_grid_total_speed() -> int:
     var total = 0
-    for child: Being_Slot in get_alive_being_slots():
+    for child: BeingSlot in get_alive_being_slots():
         total += child.being_stats.get_speed()
     return total 
         

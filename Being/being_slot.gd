@@ -1,8 +1,8 @@
 extends PanelContainer
-class_name Being_Slot
+class_name BeingSlot
 
 
-@export var being_stats: Being_Stats
+@export var being_stats: BeingStats
 var grid_coords: Vector2i
 
 
