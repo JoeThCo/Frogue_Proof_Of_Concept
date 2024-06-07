@@ -43,8 +43,9 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
     being_stats.property = data.property
     data.property = temp
     BattleEventBus.board_update.emit()
+    BattleEventBus.mouse_enter_being_slot.emit(self)
     
-
+    
 func get_preview() -> Control:
     #print(being_stats)
     if !being_stats.is_being_slot(): return null
@@ -60,6 +61,14 @@ func get_preview() -> Control:
     return preview
     
     
-func set_property(frog_data: Dictionary) -> void:
-    being_stats.property = frog_data
+func set_property(being_data: Dictionary) -> void:
+    being_stats.property = being_data
     is_filled = being_stats.property["Texture"] != null
+
+
+func _on_mouse_entered() -> void:
+    BattleEventBus.mouse_enter_being_slot.emit(self)
+
+
+func _on_mouse_exited() -> void:
+    BattleEventBus.mouse_exit_being_slot.emit(self)

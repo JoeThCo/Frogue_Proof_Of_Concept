@@ -96,7 +96,7 @@ func add_beings(count: int) -> void:
 func get_grid_total_speed() -> int:
     var total = 0
     for child: BeingSlot in get_alive_being_slots():
-        total += child.being_stats.get_speed()
+        total += child.being_stats.speed.amount
     return total 
         
         

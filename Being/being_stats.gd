@@ -43,10 +43,6 @@ func on_health_under_zero():
 func get_grid_coords() -> Vector2i:
     return being_slot.grid_coords
                 
-                
-func get_speed() -> int:
-    return speed.amount        
-    
     
 func apply_damage(other_damage: Damage):
     health.take_damage(other_damage)

@@ -14,12 +14,18 @@ config/name="Frogue"
 config/version="0.0.1.a"
 run/main_scene="res://Menus/game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://Art/icon.svg"
 
 [autoload]
 
 BattleEventBus="*res://BattleEventBus.gd"
 BattleResources="*res://Resources/battle_resources.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [input]
 
@@ -33,3 +39,4 @@ Debug={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.0918927, 0.339723, 0.354672, 1)

@@ -12,8 +12,11 @@ script = ExtResource("1_ft7s0")
 being_stats = NodePath("BeingStats")
 
 [node name="BeingStats" type="TextureRect" parent="." node_paths=PackedStringArray("being_slot")]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 expand_mode = 1
 script = ExtResource("2_r5ws6")
 being_slot = NodePath("..")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

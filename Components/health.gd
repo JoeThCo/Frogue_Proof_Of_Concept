@@ -6,10 +6,12 @@ signal health_under_zero
 
 
 var hp: int
+var max_hp: int
 
 
 func health_init() -> void:
     hp = (randi() % 20) + 1
+    max_hp = hp
     health_under_zero.connect(on_health_under_zero)
 
 
@@ -27,5 +29,9 @@ func take_damage(damage: Damage) -> void:
         health_under_zero.emit()
 
 
+func get_percent() -> float:
+    return float(hp) / float(max_hp)
+
+
 func _to_string() -> String:
-    return "HP left:" + str(hp)
+    return str(hp)
