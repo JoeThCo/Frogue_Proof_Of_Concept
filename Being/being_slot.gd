@@ -13,15 +13,21 @@ var can_player_modify: bool = false
 func being_slot_init(in_coords: Vector2i, in_can_player_modify: bool):
     grid_coords = in_coords
     can_player_modify = in_can_player_modify
+    
+    
+func compare_slots(b: BeingSlot) -> bool:
+    return get_instance_id() == b.get_instance_id()
 
 
 #to get data that can be dragged and dropped onto controls that expect drop data
 func _get_drag_data(_at_position: Vector2) -> Variant:
-    if !can_player_modify: return
+    if !can_player_modify and being_stats.is_being_slot(): return
     
     var preview: Control = get_preview()
     if preview != null:
-        set_drag_preview(get_preview())
+        set_drag_preview(preview)
+    else:
+        return null
         
     return being_stats
     
@@ -37,7 +43,6 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
     being_stats.property = data.property
     data.property = temp
     BattleEventBus.board_update.emit()
-    #print(being_stats)
     
 
 func get_preview() -> Control:

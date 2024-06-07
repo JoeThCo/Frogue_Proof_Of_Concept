@@ -65,7 +65,7 @@ func is_same_type(other_slot: BeingSlot) -> bool:
     
             
 func is_being_slot() -> bool:
-    return damage or texture or health or type or speed
+    return property and  damage and texture and health and type and speed
     
 
 func _to_string() -> String:
@@ -85,3 +85,13 @@ func battle_tween(other_slot: BeingSlot, total_time: float) -> void:
     var from_tween: Tween = get_tree().create_tween()
     from_tween.tween_property(self, "global_position", from_position, total_time * 0.5)
     await from_tween.finished
+    
+    
+func ability_tween(total_time: float) -> void:
+    var in_tween: Tween = get_tree().create_tween()
+    in_tween.tween_property(self, "scale", Vector2.ONE * 1.25, total_time * 0.5)
+    await in_tween.finished
+    
+    var out_tween: Tween = get_tree().create_tween()
+    out_tween.tween_property(self, "scale",Vector2.ONE, total_time * 0.5)
+    await out_tween.finished

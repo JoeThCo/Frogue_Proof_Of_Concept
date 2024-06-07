@@ -1,6 +1,9 @@
 extends Node
 
 
+enum WhenToTrigger {BeforeAttack, AfterAttack}
+
+
 var all_triggers: Array[Trigger]
 var all_battle_events: Array[BattleEvent]
 
