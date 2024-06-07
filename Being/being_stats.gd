@@ -65,7 +65,7 @@ func is_same_type(other_slot: BeingSlot) -> bool:
     
             
 func is_being_slot() -> bool:
-    return property and  damage and texture and health and type and speed
+    return property and damage and texture and health and type and speed
     
 
 func _to_string() -> String:

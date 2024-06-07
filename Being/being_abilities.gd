@@ -6,9 +6,13 @@ class_name BeingAbilities
 
 
 func being_abilities_init():
+    add_random_ability()
+
+
+func add_random_ability() -> void:
     var testing: Ability = Ability.new()
     testing.ability_init(BattleResources.get_random_battle_event(), BattleResources.get_random_trigger())
-    all_abilities.append(testing)
+    all_abilities.append(testing)    
 
 
 func load_battle_event(battle_event: String) -> BattleEvent:

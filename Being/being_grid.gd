@@ -15,7 +15,7 @@ var alive_beings: Array[BeingSlot]
 func _ready() -> void:
     BattleEventBus.board_update.connect(on_board_update)
     make_grid()
-    add_beings(4)
+    add_beings(3)
     
         
 func on_board_update() -> void:

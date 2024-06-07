@@ -26,6 +26,7 @@ func _on_fight_button_up() -> void:
     var faster_grid: BeingGrid = null
     var slower_grid: BeingGrid = null
     
+    #get faster grid
     if player_grid.get_grid_total_speed() >= baddie_grid.get_grid_total_speed():
         faster_grid = player_grid
         slower_grid = baddie_grid
