@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bijylddkto8g0"]
+[gd_scene load_steps=3 format=3 uid="uid://bijylddkto8g0"]
 
+[ext_resource type="Script" path="res://UI/main_menu.gd" id="1_i0gqg"]
 [ext_resource type="Theme" uid="uid://drjhkeuctl881" path="res://UI/battle_ui_theme.tres" id="1_ixxae"]
 
 [node name="MainMenu" type="Control"]
@@ -9,8 +10,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_i0gqg")
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 layout_mode = 0
 offset_left = 398.0
 offset_right = 899.0
@@ -21,7 +23,7 @@ text = "Frogue"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="Play" type="Button" parent="."]
 layout_mode = 0
 offset_left = 568.0
 offset_top = 526.0
@@ -30,3 +32,10 @@ offset_bottom = 637.0
 theme = ExtResource("1_ixxae")
 theme_override_font_sizes/font_size = 75
 text = "Play"
+
+[node name="Version" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="button_up" from="Play" to="." method="_on_play_button_up"]

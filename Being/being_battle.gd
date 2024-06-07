@@ -56,6 +56,7 @@ func battle(first_grid: BeingGrid, second_grid: BeingGrid) -> void:
         await first_grid_slot.being_stats.battle_tween(second_grid.get_first(), battle_speed)
         if is_battle_over():
             get_battle_winner()
+            get_tree().change_scene_to_file("res://UI/Menus/main_menu.tscn")
             break
     
     
