@@ -9,7 +9,7 @@ var damage: Damage
 var health: Health
 var speed: Speed
 var type: Being_Type
-var abilities: Being_Abilities
+var abilities: BeingAbilities
 
 
 @onready var property: Dictionary = {"Texture": null,
@@ -52,12 +52,16 @@ func apply_damage(other_damage: Damage):
     health.take_damage(other_damage)
     
     
-func is_same_type(other_slot: BeingSlot) -> bool:
-    return type.being_type == other_slot.being_stats.type.being_type 
+func is_same_col(other_slot: BeingSlot) -> bool:
+    return being_slot.grid_coords.y == other_slot.grid_coords.y
+
+
+func is_same_row(other_slot: BeingSlot) -> bool:
+    return being_slot.grid_coords.x == other_slot.grid_coords.x
     
 
-func apply_abilities(other_slot: BeingSlot) -> void:
-    being_slot.being_stats.abilities.apply_abilities(being_slot, other_slot)
+func is_same_type(other_slot: BeingSlot) -> bool:
+    return type.being_type == other_slot.being_stats.type.being_type 
     
             
 func is_being_slot() -> bool:
@@ -69,7 +73,6 @@ func _to_string() -> String:
     
     
 func battle_tween(other_slot: BeingSlot, total_time: float) -> void:
-    apply_abilities(other_slot)
     var from_position: Vector2 = global_position
 
     var to_tween: Tween = get_tree().create_tween()

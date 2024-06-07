@@ -1,4 +1,4 @@
-extends Battle_Event
+extends BattleEvent
 class_name DamageIncrease
 
 

@@ -46,8 +46,11 @@ func _on_fight_button_up() -> void:
         
 
 func battle(first_grid: BeingGrid, second_grid: BeingGrid) -> void:
-     for being_slot: BeingSlot in first_grid.alive_beings:
-        await being_battle(being_slot, second_grid.get_first())
+    for first_grid_slot: BeingSlot in first_grid.alive_beings:
+        first_grid_slot.being_stats.abilities.apply_abilitie_grid(first_grid_slot, first_grid) #check with self
+        first_grid_slot.being_stats.abilities.apply_abilitie_grid(first_grid_slot, second_grid) #check with other
+        
+        await being_battle(first_grid_slot, second_grid.get_first())
         if is_battle_over():
             get_battle_winner()
             break
