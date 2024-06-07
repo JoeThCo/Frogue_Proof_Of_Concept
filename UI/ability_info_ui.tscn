@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cc2mvjpfjvrti"]
 
-[ext_resource type="Script" path="res://Being/ability_info_ui.gd" id="1_j5fnv"]
+[ext_resource type="Script" path="res://UI/ability_info_ui.gd" id="1_vpj55"]
 
 [node name="AbilityUi" type="Control"]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_j5fnv")
+script = ExtResource("1_vpj55")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0

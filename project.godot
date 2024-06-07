@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Frogue"
 config/version="0.0.1.a"
-run/main_scene="res://Menus/game.tscn"
+run/main_scene="res://UI/Menus/game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://Art/icon.svg"

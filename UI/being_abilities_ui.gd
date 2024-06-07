@@ -1,7 +1,7 @@
 extends Control
 
 
-var ability_info_ui: PackedScene = preload("res://Being/ability_info_ui.tscn")
+var ability_info_ui: PackedScene = preload("res://UI/ability_info_ui.tscn")
 
 
 func _ready() -> void:

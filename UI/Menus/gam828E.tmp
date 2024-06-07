@@ -1,13 +1,15 @@
 [gd_scene load_steps=7 format=3 uid="uid://rhvrri1c7lap"]
 
-[ext_resource type="Script" path="res://Being/being_battle.gd" id="1_30dtn"]
-[ext_resource type="Script" path="res://Being/being_grid.gd" id="1_tlrw0"]
-[ext_resource type="Theme" uid="uid://drjhkeuctl881" path="res://Art/battle_ui_theme.tres" id="3_ktncb"]
-[ext_resource type="Script" path="res://Being/being_stats_ui.gd" id="4_6n610"]
-[ext_resource type="Texture2D" uid="uid://bcjwtdxmp7n8o" path="res://Art/icon.svg" id="5_cgspe"]
-[ext_resource type="Script" path="res://Being/being_abilities_ui.gd" id="6_a1oqf"]
+[ext_resource type="Script" path="res://Being/being_battle.gd" id="1_8p5xk"]
+[ext_resource type="Script" path="res://Being/being_grid.gd" id="2_cspxb"]
+[ext_resource type="Theme" uid="uid://drjhkeuctl881" path="res://UI/battle_ui_theme.tres" id="3_0gf0w"]
+[ext_resource type="Script" path="res://UI/being_stats_ui.gd" id="4_sjg54"]
+[ext_resource type="Texture2D" uid="uid://bcjwtdxmp7n8o" path="res://Art/icon.svg" id="5_na35a"]
+[ext_resource type="Script" path="res://UI/being_abilities_ui.gd" id="6_w3k52"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -17,7 +19,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_30dtn")
+script = ExtResource("1_8p5xk")
 player_grid = NodePath("Player/Player_Grid")
 baddie_grid = NodePath("Baddie/Baddie_Grid")
 
@@ -32,7 +34,7 @@ offset_bottom = 140.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_tlrw0")
+script = ExtResource("2_cspxb")
 can_player_modifiy = true
 
 [node name="Baddie" type="Control" parent="Battle"]
@@ -46,7 +48,7 @@ offset_bottom = 142.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_tlrw0")
+script = ExtResource("2_cspxb")
 
 [node name="HUD" type="Control" parent="Battle"]
 anchors_preset = 0
@@ -61,14 +63,14 @@ offset_left = 50.0
 offset_top = 594.0
 offset_right = 300.0
 offset_bottom = 644.0
-theme = ExtResource("3_ktncb")
+theme = ExtResource("3_0gf0w")
 text = "Fight"
 
 [node name="BeingInfo" type="Control" parent="Battle/HUD"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("4_6n610")
+script = ExtResource("4_sjg54")
 
 [node name="Panel" type="Panel" parent="Battle/HUD/BeingInfo"]
 layout_mode = 0
@@ -81,7 +83,7 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 79.0
 offset_bottom = 72.0
-texture = ExtResource("5_cgspe")
+texture = ExtResource("5_na35a")
 expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Battle/HUD/BeingInfo/Panel"]
@@ -117,7 +119,7 @@ offset_left = 54.0
 offset_top = 140.0
 offset_right = 94.0
 offset_bottom = 180.0
-script = ExtResource("6_a1oqf")
+script = ExtResource("6_w3k52")
 
 [node name="MainVbox" type="VBoxContainer" parent="Battle/HUD/BeingAbilites"]
 layout_mode = 0
