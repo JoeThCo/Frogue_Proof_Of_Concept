@@ -38,7 +38,7 @@ var abilities: BeingAbilities
 func on_health_under_zero():
     print("Dead!")
     texture = null
-                
+             
                 
 func get_grid_coords() -> Vector2i:
     return being_slot.grid_coords

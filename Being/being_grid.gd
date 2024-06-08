@@ -20,9 +20,7 @@ func _ready() -> void:
         
 func on_board_update() -> void:
     alive_beings = []
-    for child in get_alive_being_slots():
-        var temp_being_slot: BeingSlot = child as BeingSlot
-        alive_beings.append(temp_being_slot)
+    alive_beings.append_array(get_alive_being_slots())
         
 
 func being_slot_by_index(index: int) -> BeingSlot:
