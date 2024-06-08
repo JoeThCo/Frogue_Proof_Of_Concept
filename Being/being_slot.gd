@@ -21,7 +21,7 @@ func compare_slots(b: BeingSlot) -> bool:
 
 #to get data that can be dragged and dropped onto controls that expect drop data
 func _get_drag_data(_at_position: Vector2) -> Variant:
-    if !can_player_modify and being_stats.is_being_slot(): return
+    if !can_player_modify or !being_stats.is_being_slot() or BattleEventBus.is_battling: return
     
     var preview: Control = get_preview()
     if preview != null:
@@ -34,7 +34,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
     
 #to test if data from a control's _get_drag_data() can be dropped at at_position
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
-    return data is TextureRect
+    return data is TextureRect and can_player_modify == data.being_slot.can_player_modify
     
 
 # to pass you the data from a control's _get_drag_data() result

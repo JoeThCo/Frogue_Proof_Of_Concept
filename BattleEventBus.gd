@@ -1,5 +1,19 @@
 extends Node
 
+var is_battling: bool = false
+
+func _ready() -> void:
+    battle_start.connect(on_battle_start)
+    battle_end.connect(on_battle_end)
+    
+    
+func on_battle_start() -> void:
+    is_battling = true
+    
+    
+func on_battle_end() -> void:
+    is_battling = false
+    
 
 signal board_update()
 
