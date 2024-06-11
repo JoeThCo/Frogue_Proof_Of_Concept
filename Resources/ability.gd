@@ -21,5 +21,5 @@ func is_triggered(current_slot: BeingSlot, other_slot: BeingSlot, in_when_to_tri
 
 func apply_ability(current_slot: BeingSlot, other_slot: BeingSlot) -> void:
         battle_event.apply_event(current_slot, other_slot)
-        current_slot.being_stats.ability_tween(.75)
-        await other_slot.being_stats.ability_tween(.75) #this does both at the same time
+        current_slot.being_stats.ability_tween()
+        await other_slot.being_stats.ability_tween() #this does both at the same time

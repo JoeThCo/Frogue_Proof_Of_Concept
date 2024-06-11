@@ -3,6 +3,7 @@ class_name BeingStats
 
 
 @export var being_slot: BeingSlot
+@export var animation_player: AnimationPlayer
 
 
 var damage: Damage
@@ -89,11 +90,11 @@ func battle_tween(other_slot: BeingSlot, total_time: float) -> void:
     await from_tween.finished
     
     
-func ability_tween(total_time: float) -> void:
-    var in_tween: Tween = get_tree().create_tween()
-    in_tween.tween_property(self, "scale", Vector2.ONE * 1.25, total_time * 0.5)
-    await in_tween.finished
+func damage_tween() -> void:
+    animation_player.play("Damage")
+    await  animation_player.animation_finished
     
-    var out_tween: Tween = get_tree().create_tween()
-    out_tween.tween_property(self, "scale",Vector2.ONE, total_time * 0.5)
-    await out_tween.finished
+    
+func ability_tween() -> void:
+    animation_player.play("Ability")
+    await animation_player.animation_finished
