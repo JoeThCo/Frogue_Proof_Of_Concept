@@ -6,7 +6,7 @@ class_name BeingGrid
 
 
 @export var can_player_modifiy: bool = false
-@export var grid_size: int = 3
+@export var grid_size: Vector2i = Vector2i.ONE * 3
 
 
 var alive_beings: Array[BeingSlot]
@@ -40,9 +40,9 @@ func is_dead() -> bool:
 
         
 func make_grid() -> void:
-    columns = grid_size
-    for x in range(grid_size):
-        for y in range(grid_size):
+    columns = grid_size.y
+    for x in range(grid_size.x):
+        for y in range(grid_size.y):
             var coords: Vector2i = Vector2i(x, y)
             var new_being_slot: BeingSlot = being_slot.instantiate() as BeingSlot
             new_being_slot.being_slot_init(coords, can_player_modifiy)
@@ -86,7 +86,7 @@ func add_being() -> void:
             
 
 func add_beings(count: int) -> void:
-    var min_count = min(count, grid_size * grid_size)
+    var min_count = min(count, round(grid_size.x * grid_size.y))
     for i in range(min_count):
         add_being()
         

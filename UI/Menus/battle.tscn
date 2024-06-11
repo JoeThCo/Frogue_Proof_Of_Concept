@@ -34,15 +34,16 @@ can_player_modifiy = true
 [node name="Baddie" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 962.0
-offset_top = 102.0
+offset_top = 183.0
 offset_right = 1002.0
-offset_bottom = 142.0
+offset_bottom = 223.0
 
 [node name="Baddie_Grid" type="GridContainer" parent="Baddie"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_jx27l")
+grid_size = Vector2i(1, 3)
 
 [node name="HUD" type="Control" parent="."]
 anchors_preset = 0
