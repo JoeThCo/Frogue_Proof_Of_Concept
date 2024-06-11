@@ -18,6 +18,7 @@ func on_mouse_enter_being_slot(being_slot: BeingSlot) -> void:
     $Panel/VBoxContainer/Damage.text = "Damage: " + str(being_slot.being_stats.damage)
     $Panel/VBoxContainer/Coords.text = "Coords: " + str(being_slot.grid_coords)
     
+    $Panel/ProgressBar/Label.text = str(being_slot.being_stats.health.hp) + "/" + str(being_slot.being_stats.health.max_hp)
     $Panel/ProgressBar.value = being_slot.being_stats.health.get_percent()
     visible = true
     

@@ -82,11 +82,7 @@ func apply_abilities(first_grid: BeingGrid, second_grid: BeingGrid, when_to_trig
     for first_grid_slot: BeingSlot in first_grid.alive_beings:
         check_battle_over()
         if BattleEventBus.is_winner: return
-        await first_grid_slot.being_stats.abilities.apply_abilitie_grid(first_grid_slot, first_grid, when_to_trigger, BattleResources.WhatGrid.SameGrid) #check with self
-        
-        check_battle_over()
-        if BattleEventBus.is_winner: return
-        await first_grid_slot.being_stats.abilities.apply_abilitie_grid(first_grid_slot, second_grid, when_to_trigger, BattleResources.WhatGrid.OppositeGrid) #check with other
+        await first_grid_slot.being_stats.abilities.apply_abilitie_grid(first_grid_slot, first_grid, when_to_trigger) #check with self
     check_battle_over()
     
     

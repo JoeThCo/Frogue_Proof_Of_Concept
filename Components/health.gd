@@ -15,6 +15,12 @@ func health_init() -> void:
     health_under_zero.connect(on_health_under_zero)
 
 
+func heal_damage() -> void:
+    hp += float(max_hp) * .25
+    print(float(max_hp) * .25)
+    BattleEventBus.board_update.emit()
+
+
 func on_health_under_zero() -> void:
     BattleEventBus.board_update.emit()
 

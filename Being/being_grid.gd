@@ -4,7 +4,7 @@ class_name BeingGrid
 
 @onready var being_slot: PackedScene = load("res://Being/being_slot.tscn")
 
-
+@export var start_being_number: int = 6
 @export var can_player_modifiy: bool = false
 @export var grid_size: Vector2i = Vector2i.ONE * 3
 
@@ -15,7 +15,7 @@ var alive_beings: Array[BeingSlot]
 func _ready() -> void:
     BattleEventBus.board_update.connect(on_board_update)
     make_grid()
-    add_beings(3)
+    add_beings(start_being_number)
     
         
 func on_board_update() -> void:
@@ -32,7 +32,9 @@ func get_first() -> BeingSlot:
         
         
 func get_alive_being_slots() -> Array[Node]:
-    return get_children().filter(func(x: BeingSlot): return x.being_stats.is_being_slot() and x.being_stats.health.is_alive())
+    var get_alive_beings = get_children().filter(func(x: BeingSlot): return x.being_stats.is_being_slot() and x.being_stats.health.is_alive())
+    get_alive_beings.sort_custom(func(a: BeingSlot,b: BeingSlot): if a.being_stats.speed.amount > b.being_stats.speed.amount: return a else: return b)
+    return get_alive_beings 
         
 
 func is_dead() -> bool:

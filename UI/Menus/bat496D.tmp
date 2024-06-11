@@ -13,6 +13,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_s7a0l")
+battle_speed = null
 player_grid = NodePath("Player/Player_Grid")
 baddie_grid = NodePath("Baddie/Baddie_Grid")
 
@@ -107,15 +108,6 @@ offset_top = 96.0
 offset_right = 327.0
 offset_bottom = 123.0
 max_value = 1.0
-show_percentage = false
-
-[node name="Label" type="Label" parent="HUD/BeingInfo/Panel/ProgressBar"]
-layout_mode = 0
-offset_top = 1.0
-offset_right = 313.0
-offset_bottom = 26.0
-text = "HP/MAX HP"
-horizontal_alignment = 1
 
 [node name="BeingAbilites" type="Control" parent="HUD"]
 anchors_preset = 0

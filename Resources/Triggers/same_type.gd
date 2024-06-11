@@ -7,4 +7,4 @@ func is_triggered(current_slot: BeingSlot, other_slot: BeingSlot) -> bool:
 
 
 func _to_string() -> String:
-    return "Same Type"
+    return "Same Type as another Being"
