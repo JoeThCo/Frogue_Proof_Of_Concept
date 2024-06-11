@@ -2,6 +2,7 @@ extends Node
 
 
 enum WhenToTrigger {BeforeAttack, AfterAttack}
+enum WhatGrid {SameGrid, OppositeGrid}
 
 
 var all_triggers: Array[Trigger]

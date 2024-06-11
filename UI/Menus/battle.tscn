@@ -13,6 +13,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_s7a0l")
+battle_speed = null
 player_grid = NodePath("Player/Player_Grid")
 baddie_grid = NodePath("Baddie/Baddie_Grid")
 
