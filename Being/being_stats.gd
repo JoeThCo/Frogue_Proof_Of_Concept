@@ -36,9 +36,15 @@ var abilities: BeingAbilities
             
                 
 func on_health_under_zero():
+    #figure out how to clear a slot as if it has been empty the whole time
     print("Dead!")
+    clear_dictionary()
     texture = null
+    
              
+func clear_dictionary() -> void:
+    property = {"Texture":null, "Damage": null, "Health": null, "Speed": null, "Being_Type": null, "Abilities": null}
+    
                 
 func get_grid_coords() -> Vector2i:
     return being_slot.grid_coords

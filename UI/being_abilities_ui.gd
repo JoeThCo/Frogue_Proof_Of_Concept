@@ -28,5 +28,5 @@ func on_mouse_enter_being_slot(being_slot: BeingSlot) -> void:
     visible = true
     
     
-func on_mouse_exit_being_slot(being_slot: BeingSlot) -> void:
+func on_mouse_exit_being_slot(_being_slot: BeingSlot) -> void:
     visible = false

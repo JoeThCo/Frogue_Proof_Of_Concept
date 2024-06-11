@@ -19,8 +19,9 @@ config/icon="res://Art/icon.svg"
 
 [autoload]
 
-BattleEventBus="*res://BattleEventBus.gd"
+BattleEventBus="*res://battle_events_bus.gd"
 BattleResources="*res://Resources/battle_resources.gd"
+MenuManager="*res://menu_manager.gd"
 
 [display]
 

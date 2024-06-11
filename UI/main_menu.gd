@@ -6,4 +6,4 @@ func _ready() -> void:
 
 
 func _on_play_button_up() -> void:
-    get_tree().change_scene_to_file("res://UI/Menus/game.tscn")
+    MenuManager.load_battle()
